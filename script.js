@@ -33,7 +33,6 @@
             showAlert('HTML tags stripped successfully!', 'success');
         });
 
-        // Copy to clipboard button click handler
         copyButton.addEventListener('click', async () => {
             const output = outputTextArea.value.trim();
             
