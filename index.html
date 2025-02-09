@@ -9,15 +9,13 @@
 <body>
     <div class="container fade-in">
         <h1>HTML Tag Stripper</h1>
-        
-        <div id="alert" class="alert"></div>
-        
-        <div class="text-area-container">
+
+        <div id="alert" class="alert" role="alert" aria-live="polite"></div> <div class="text-area-container">
             <div class="text-area-wrapper">
                 <label class="text-area-label" for="input">Input HTML:</label>
                 <textarea id="input" placeholder="Paste your HTML here..."></textarea>
             </div>
-            
+
             <div class="text-area-wrapper">
                 <label class="text-area-label" for="output">Plain Text Output:</label>
                 <textarea id="output" placeholder="Stripped text will appear here..." readonly></textarea>
