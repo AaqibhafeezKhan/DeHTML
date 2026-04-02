@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useToast } from '../../context/ToastContext';
+import styles from './ToolLayout.module.css';
 
 const DiffTool = () => {
   const { addToast } = useToast();
@@ -32,97 +33,56 @@ const DiffTool = () => {
     addToast('Diff calculated.', 'success');
   };
 
-  const textAreaStyle = {
-    width: '100%',
-    minHeight: '200px',
-    background: 'var(--bg-base)',
-    color: 'var(--text-primary)',
-    border: '1px solid var(--border-glass)',
-    borderRadius: 'var(--radius-md)',
-    padding: '1rem',
-    fontFamily: 'var(--font-mono)',
-    fontSize: '0.9rem',
-    resize: 'vertical',
-    outline: 'none',
-    whiteSpace: 'pre'
-  };
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-secondary)', fontWeight: 'bold' }}>Original Text:</label>
+    <div className={styles.container}>
+      <div className={styles.editorGrid}>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Original Text:</label>
           <textarea 
             value={text1}
             onChange={(e) => setText1(e.target.value)}
             placeholder="Paste original text here..."
-            style={textAreaStyle}
+            className={styles.textarea}
           />
         </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-secondary)', fontWeight: 'bold' }}>Modified Text:</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Modified Text:</label>
           <textarea 
             value={text2}
             onChange={(e) => setText2(e.target.value)}
             placeholder="Paste modified text here..."
-            style={textAreaStyle}
+            className={styles.textarea}
           />
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
+      <div className={styles.actions}>
         <button 
           onClick={computeDiff} 
-          style={{
-            padding: '0.75rem 1.5rem',
-            border: 'none',
-            borderRadius: 'var(--radius-sm)',
-            background: 'var(--primary-color)',
-            color: '#fff',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          className={styles.btnPrimary}
         >
           Compare Texts
         </button>
         <button 
           onClick={() => { setText1(''); setText2(''); setDiffResult(null); }}
-          style={{
-            padding: '0.75rem 1.5rem',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            background: 'var(--bg-base)',
-            color: 'var(--text-primary)',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          className={styles.btnOutline}
         >
           Clear
         </button>
       </div>
 
       {diffResult && (
-        <div style={{
-          marginTop: '2rem',
-          padding: '1rem',
-          background: 'white',
-          border: '1px solid var(--border-color)',
-          borderRadius: 'var(--radius-md)',
-          fontFamily: 'var(--font-mono)',
-          maxHeight: '300px',
-          overflowY: 'auto'
-        }}>
-          <h3 style={{ marginBottom: '1rem' }}>Difference Output:</h3>
+        <div className={styles.resultArea}>
+          <h3 className={styles.label} style={{ marginBottom: '1rem' }}>Difference Output:</h3>
           {diffResult.map((line, idx) => (
-            <div key={idx} style={{
-              background: line.type === 'added' ? 'var(--success-color-light)' : 
-                          line.type === 'removed' ? 'var(--error-color-light)' : 'transparent',
-              color: line.type === 'added' ? 'var(--success-color)' : 
-                     line.type === 'removed' ? 'var(--error-color)' : 'var(--text-color-dark)',
-              padding: '0.25rem',
-              whiteSpace: 'pre-wrap'
-            }}>
+            <div 
+              key={idx} 
+              className={`${styles.diffLine} ${
+                line.type === 'added' ? styles.diffAdded : 
+                line.type === 'removed' ? styles.diffRemoved : styles.diffEqual
+              }`}
+            >
               {line.type === 'added' ? '+ ' : line.type === 'removed' ? '- ' : '  '}
               {line.text}
             </div>
@@ -134,3 +94,4 @@ const DiffTool = () => {
 };
 
 export default DiffTool;
+

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useToast } from '../../context/ToastContext';
+import styles from './ToolLayout.module.css';
 
 const StripperTool = ({ input, setInput, output, setOutput }) => {
   const { addToast } = useToast();
@@ -48,89 +49,47 @@ const StripperTool = ({ input, setInput, output, setOutput }) => {
     addToast('Text areas cleared!', 'success');
   };
 
-  const textAreaStyle = {
-    width: '100%',
-    height: '250px',
-    background: 'var(--foreground-color)',
-    color: 'var(--text-color-light)',
-    border: '1px solid var(--border-color)',
-    borderRadius: 'var(--border-radius-base)',
-    padding: '0.85rem',
-    fontFamily: 'inherit',
-    fontSize: '1rem',
-    resize: 'vertical',
-    transition: 'border-color 0.2s ease-in-out',
-    outline: 'none'
-  };
-
-  const buttonStyle = (primary) => ({
-    padding: '0.85rem 1.75rem',
-    border: 'none',
-    borderRadius: 'var(--border-radius-base)',
-    background: primary ? 'var(--primary-color)' : 'var(--secondary-color)',
-    color: 'var(--foreground-color)',
-    cursor: 'pointer',
-    fontWeight: '600',
-    transition: 'background-color 0.2s ease-in-out, transform 0.1s ease',
-    boxShadow: 'var(--box-shadow-small)',
-    opacity: isStripping && primary ? 0.7 : 1
-  });
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-secondary)', fontWeight: 'bold' }}>Input HTML:</label>
+    <div className={styles.container}>
+      <div className={styles.editorGrid}>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Input HTML:</label>
           <textarea 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Paste your HTML here..."
-            style={textAreaStyle}
-            onFocus={(e) => {
-              e.target.style.borderColor = 'var(--primary-color)';
-              e.target.style.boxShadow = '0 0 0 0.2rem rgba(0, 123, 255, 0.25)';
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = 'var(--border-color)';
-              e.target.style.boxShadow = 'none';
-            }}
+            className={styles.textarea}
           />
         </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-color-dark)', fontWeight: '600', fontSize: '1.1rem' }}>Plain Text Output:</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Plain Text Output:</label>
           <textarea 
             value={output}
             readOnly
             placeholder="Stripped text will appear here..."
-            style={{...textAreaStyle, background: 'var(--background-color)', userSelect: 'all'}}
+            className={styles.textarea}
           />
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
+      <div className={styles.actions}>
         <button 
           onClick={handleStrip} 
           disabled={isStripping}
-          style={buttonStyle(true)}
-          onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
-          onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
-          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          className={styles.btnPrimary}
         >
           {isStripping ? 'Stripping...' : 'Strip HTML Tags'}
         </button>
         <button 
           onClick={handleCopy}
-          style={buttonStyle(false)}
+          className={styles.btnSecondary}
         >
           Copy
         </button>
         <button 
           onClick={handleReset}
-          style={{...buttonStyle(false)}}
-          onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
-          onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
-          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          className={styles.btnOutline}
         >
           Reset
         </button>
@@ -140,3 +99,4 @@ const StripperTool = ({ input, setInput, output, setOutput }) => {
 };
 
 export default StripperTool;
+

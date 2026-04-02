@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useToast } from '../../context/ToastContext';
+import styles from './ToolLayout.module.css';
 
 const EncoderTool = () => {
   const { addToast } = useToast();
@@ -51,112 +52,60 @@ const EncoderTool = () => {
     addToast('Text areas cleared!', 'success');
   };
 
-  const textAreaStyle = {
-    width: '100%',
-    minHeight: '200px',
-    background: 'var(--bg-base)',
-    color: 'var(--text-primary)',
-    border: '1px solid var(--border-glass)',
-    borderRadius: 'var(--radius-md)',
-    padding: '1rem',
-    fontFamily: 'var(--font-mono)',
-    fontSize: '0.9rem',
-    resize: 'vertical',
-    outline: 'none'
-  };
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
+    <div className={styles.container}>
+      <div className={styles.actions} style={{ marginBottom: '0.5rem' }}>
         <button 
           onClick={() => setMode('encode')}
-          style={{
-            padding: '0.5rem 1rem',
-            background: mode === 'encode' ? 'var(--primary-color)' : 'var(--bg-base)',
-            color: mode === 'encode' ? '#fff' : 'var(--text-primary)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            cursor: 'pointer'
-          }}
+          className={mode === 'encode' ? styles.btnPrimary : styles.btnSecondary}
         >
           Encode HTML Entities
         </button>
         <button 
           onClick={() => setMode('decode')}
-          style={{
-            padding: '0.5rem 1rem',
-            background: mode === 'decode' ? 'var(--primary-color)' : 'var(--bg-base)',
-            color: mode === 'decode' ? '#fff' : 'var(--text-primary)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            cursor: 'pointer'
-          }}
+          className={mode === 'decode' ? styles.btnPrimary : styles.btnSecondary}
         >
           Decode HTML Entities
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-secondary)', fontWeight: 'bold' }}>Input Text:</label>
+      <div className={styles.editorGrid}>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Input Text:</label>
           <textarea 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={`Paste your text to ${mode} here...`}
-            style={textAreaStyle}
+            className={styles.textarea}
           />
         </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ color: 'var(--text-secondary)', fontWeight: 'bold' }}>Output Text:</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Output Text:</label>
           <textarea 
             value={output}
             readOnly
-            style={{...textAreaStyle, background: 'var(--bg-base)'}}
+            className={styles.textarea}
           />
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
+      <div className={styles.actions}>
         <button 
           onClick={handleProcess} 
-          style={{
-            padding: '0.75rem 1.5rem',
-            border: 'none',
-            borderRadius: 'var(--radius-sm)',
-            background: 'var(--primary-color)',
-            color: '#fff',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          className={styles.btnPrimary}
         >
           {mode === 'encode' ? 'Encode' : 'Decode'}
         </button>
         <button 
           onClick={handleCopy}
-          style={{
-            padding: '0.75rem 1.5rem',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            background: 'var(--secondary-color)',
-            color: '#fff',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          className={styles.btnSecondary}
         >
           Copy
         </button>
         <button 
           onClick={handleReset}
-          style={{
-            padding: '0.75rem 1.5rem',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            background: 'var(--bg-base)',
-            color: 'var(--text-primary)',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          className={styles.btnOutline}
         >
           Reset
         </button>
