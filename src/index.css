@@ -1,61 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
-  --primary-color: #007bff;
-  --primary-color-darker: #0056b3;
-  --secondary-color: #6c757d;
-  --secondary-color-darker: #545b62;
-  --background-color: #f8f9fa;
-  --foreground-color: #ffffff;
-  --text-color-dark: #343a40;
-  --text-color-light: #495057;
-  --border-color: #ced4da;
-  --success-color: #28a745;
-  --success-color-light: #d4edda;
-  --error-color: #dc3545;
-  --error-color-light: #f8d7da;
-  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --border-radius-base: 0.25rem;
-  --box-shadow-small: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
-  --box-shadow-medium: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-glow: rgba(99, 102, 241, 0.4);
+  
+  --secondary: #ec4899;
+  --secondary-glow: rgba(236, 72, 153, 0.4);
 
-  --bg-base: var(--background-color);
-  --bg-surface: var(--foreground-color);
-  --bg-glass: var(--foreground-color);
-  --bg-glass-hover: #e9ecef;
-  --bg-input: #ffffff;
+  --bg-base: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --bg-input: #0b1120;
 
-  --accent-1: var(--primary-color);
-  --accent-2: var(--primary-color-darker);
-  --accent-gradient: var(--primary-color);
-  --accent-glow: none;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
 
-  --text-primary: var(--text-color-dark);
-  --text-secondary: var(--text-color-light);
-  --text-muted: #6c757d;
+  --border-subtle: #334155;
+  --border-active: #6366f1;
 
-  --border-subtle: var(--border-color);
-  --border-active: var(--primary-color);
-  --border-glass: var(--border-color);
+  --success: #10b981;
+  --error: #ef4444;
 
-  --success: var(--success-color);
-  --success-bg: var(--success-color-light);
-  --error: var(--error-color);
-  --error-bg: var(--error-color-light);
-  --warning: #ffc107;
-  --warning-bg: #fff3cd;
-  --info: #17a2b8;
-  --info-bg: #d1ecf1;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, monospace;
 
-  --font-sans: var(--font-family-base);
-  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 
-  --radius-sm: var(--border-radius-base);
-  --radius-md: var(--border-radius-base);
-  --radius-lg: 0.3rem;
-  --radius-xl: 0.4rem;
-
-  --shadow-sm: var(--box-shadow-small);
-  --shadow-md: var(--box-shadow-medium);
-  --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 0 20px var(--primary-glow);
 }
 
 *, *::before, *::after {
@@ -75,6 +51,22 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 #root {
@@ -82,6 +74,7 @@ body {
   z-index: 1;
 }
 
+/* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -90,12 +83,14 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-@keyframes toast-in {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
 
+/* Scrollbars */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
-::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--secondary-color); }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Globals */
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+button { font-family: inherit; cursor: pointer; transition: all 0.2s; }
+input, textarea, select { font-family: inherit; }

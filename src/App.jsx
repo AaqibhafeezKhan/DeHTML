@@ -5,6 +5,8 @@ import StripperTool from './components/tools/StripperTool'
 import EncoderTool from './components/tools/EncoderTool'
 import DiffTool from './components/tools/DiffTool'
 import FormatterTool from './components/tools/FormatterTool'
+import MinifierTool from './components/tools/MinifierTool'
+import PreviewerTool from './components/tools/PreviewerTool'
 import StatsPanel from './components/StatsPanel'
 import ToastContainer from './components/ToastContainer'
 import { ToastProvider } from './context/ToastContext'
@@ -14,7 +16,9 @@ const TABS = [
   { id: 'strip',   label: 'Strip Tags' },
   { id: 'encode',  label: 'Encode / Decode' },
   { id: 'diff',    label: 'Diff Viewer' },
-  { id: 'format',  label: 'Formatter' }
+  { id: 'format',  label: 'Formatter' },
+  { id: 'minify',  label: 'Minifier' },
+  { id: 'preview', label: 'Previewer' }
 ]
 
 export default function App() {
@@ -28,6 +32,8 @@ export default function App() {
       case 'encode': return <EncoderTool />
       case 'diff':   return <DiffTool />
       case 'format': return <FormatterTool />
+      case 'minify': return <MinifierTool />
+      case 'preview':return <PreviewerTool />
       default:       return null
     }
   }

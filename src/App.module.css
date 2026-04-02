@@ -15,30 +15,35 @@
 
 .toolArea {
   width: 100%;
-  max-width: 900px;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2rem 2.5rem;
+  max-width: 1000px; /* Made slightly wider to fit complex tools */
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
   box-shadow: var(--shadow-md);
   margin-top: 1.5rem;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .footer {
   text-align: center;
   padding: 1.5rem;
-  background-color: var(--bg-base);
-  border-top: 1px solid var(--border-color);
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .footer a {
-  color: var(--primary-color);
+  color: var(--primary);
   text-decoration: none;
+  transition: text-shadow 0.2s, color 0.2s;
 }
 
 .footer a:hover {
-  text-decoration: underline;
-  color: var(--primary-color-darker);
+  text-decoration: none;
+  color: var(--primary-hover);
+  text-shadow: 0 0 8px var(--primary-glow);
 }
