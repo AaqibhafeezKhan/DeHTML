@@ -44,11 +44,11 @@ The output will be generated in the `dist` directory, fully optimized and ready 
 
 ## Deployment to GitHub Pages
 
-The application is pre-configured for GitHub pages deployment (`base: './'` in `vite.config.js`).
+The application is pre-configured for GitHub pages deployment (`base: '/DeHTML/'` in `vite.config.js`).
 
 1. Ensure the `dist` folder is correctly generated.
 2. Push your code to your repository.
-3. Configure your GitHub Pages to deploy from the branch/folder pointing to `dist`.
+3. Configure your GitHub Pages settings to use **GitHub Actions** as the source.
 
 ## Testing
 
