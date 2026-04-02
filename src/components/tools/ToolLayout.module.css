@@ -33,7 +33,7 @@
 
 .textarea {
   width: 100%;
-  height: 300px;
+  height: 220px;
   background: var(--bg-input);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
@@ -129,7 +129,7 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   font-family: var(--font-mono);
-  max-height: 500px;
+  max-height: 380px;
   overflow-y: auto;
   animation: fadeUp 0.4s ease-out;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);

@@ -1,7 +1,7 @@
 .footer {
   text-align: center;
-  padding: 2.5rem 1.5rem;
-  margin-top: 3rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
   background: var(--bg-glass);
   border-top: 1px solid var(--border-subtle);
   backdrop-filter: blur(12px);
