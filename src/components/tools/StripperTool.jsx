@@ -37,6 +37,7 @@ const StripperTool = ({ input, setInput, output, setOutput }) => {
       await navigator.clipboard.writeText(output);
       addToast('Text copied to clipboard!', 'success');
     } catch (err) {
+      console.error(err);
       addToast('Failed to copy text. Please try again.', 'error');
     }
   };

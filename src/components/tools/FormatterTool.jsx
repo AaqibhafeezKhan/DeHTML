@@ -18,7 +18,7 @@ const FormatterTool = () => {
       
       formatted += indent + '<' + element + '>\r\n';
       
-      if (element.match(/^<?\w[^>]*[^\/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr")) { 
+      if (element.match(/^<?\w[^>]*[^/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr")) { 
         indent += tab;              
       }
     });
@@ -36,6 +36,7 @@ const FormatterTool = () => {
       setOutput(formatHtml(input));
       addToast('HTML formatted successfully!', 'success');
     } catch (e) {
+      console.error(e);
       addToast('Error formatting HTML.', 'error');
     }
   };
@@ -49,6 +50,7 @@ const FormatterTool = () => {
       await navigator.clipboard.writeText(output);
       addToast('Text copied to clipboard!', 'success');
     } catch (err) {
+      console.error(err);
       addToast('Failed to copy text.', 'error');
     }
   };

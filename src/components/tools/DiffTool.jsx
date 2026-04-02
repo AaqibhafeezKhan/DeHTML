@@ -13,9 +13,6 @@ const DiffTool = () => {
       return;
     }
 
-    const words1 = text1.split(/(\s+)/);
-    const words2 = text2.split(/(\s+)/);
-    
     const lines1 = text1.split('\n');
     const lines2 = text2.split('\n');
     const maxLines = Math.max(lines1.length, lines2.length);

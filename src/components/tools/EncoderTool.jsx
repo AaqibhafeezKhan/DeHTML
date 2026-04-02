@@ -26,6 +26,7 @@ const EncoderTool = () => {
         addToast('Text decoded successfully!', 'success');
       }
     } catch (e) {
+      console.error(e);
       addToast('Error processing text.', 'error');
     }
   };
@@ -39,6 +40,7 @@ const EncoderTool = () => {
       await navigator.clipboard.writeText(output);
       addToast('Text copied to clipboard!', 'success');
     } catch (err) {
+      console.error(err);
       addToast('Failed to copy text.', 'error');
     }
   };
