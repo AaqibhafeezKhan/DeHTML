@@ -53,7 +53,7 @@ copyButton.addEventListener('click', async () => {
     try {
         await navigator.clipboard.writeText(output);
         showAlert('Text copied to clipboard!', 'success');
-    } catch (err) {
+    } catch {
         showAlert('Failed to copy text. Please try again.', 'error');
     }
 });
