@@ -27,23 +27,3 @@
   animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  background-color: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.footer a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: text-shadow 0.2s, color 0.2s;
-}
-
-.footer a:hover {
-  text-decoration: none;
-  color: var(--primary-hover);
-  text-shadow: 0 0 8px var(--primary-glow);
-}

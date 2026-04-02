@@ -9,6 +9,7 @@ import MinifierTool from './components/tools/MinifierTool'
 import PreviewerTool from './components/tools/PreviewerTool'
 import StatsPanel from './components/StatsPanel'
 import ToastContainer from './components/ToastContainer'
+import Footer from './components/Footer'
 import { ToastProvider } from './context/ToastContext'
 import styles from './App.module.css'
 
@@ -49,9 +50,7 @@ export default function App() {
           </div>
           {activeTab === 'strip' && <StatsPanel text={outputText} />}
         </main>
-        <footer className={styles.footer}>
-          <p>DeHTML &copy; {new Date().getFullYear()} — Built with React + Vite &nbsp;|&nbsp; <a href="/legacy/index.html" target="_blank" rel="noreferrer">View Legacy Version</a></p>
-        </footer>
+        <Footer />
       </div>
       <ToastContainer />
     </ToastProvider>

@@ -16,24 +16,31 @@ const ToastContainer = () => {
     }}>
       {toasts.map(toast => (
         <div key={toast.id} style={{
-          backgroundColor: toast.type === 'success' ? 'var(--success-color-light)' : 
-                           toast.type === 'error' ? 'var(--error-color-light)' : 'var(--foreground-color)',
-          border: '1px solid',
-          borderColor: toast.type === 'success' ? 'var(--success-color-light)' : 
-                       toast.type === 'error' ? 'var(--error-color-light)' : 'var(--border-color)',
-          borderLeft: '5px solid ' + (toast.type === 'success' ? 'var(--success-color)' : 
-                  toast.type === 'error' ? 'var(--error-color)' : 'var(--border-color)'),
-          color: toast.type === 'success' ? 'var(--success-color)' : 
-                 toast.type === 'error' ? 'var(--error-color)' : 'var(--text-color-dark)',
-          padding: '1.1rem 1.5rem',
-          borderRadius: 'var(--border-radius-base)',
-          animation: 'toast-in 0.3s ease-out',
+          backgroundColor: 'var(--bg-glass)',
+          backdropFilter: 'blur(12px)',
+          border: '1px solid ' + (toast.type === 'success' ? 'var(--success)' : 
+                       toast.type === 'error' ? 'var(--error)' : 'var(--border-subtle)'),
+          borderLeft: '5px solid ' + (toast.type === 'success' ? 'var(--success)' : 
+                  toast.type === 'error' ? 'var(--error)' : 'var(--primary)'),
+          color: 'var(--text-primary)',
+          padding: '1rem 1.75rem',
+          borderRadius: 'var(--radius-md)',
+          animation: 'fadeUp 0.3s ease-out',
           display: 'flex',
           alignItems: 'center',
           gap: '0.75rem',
-          fontWeight: '500',
-          boxShadow: 'var(--box-shadow-small)'
+          fontWeight: '600',
+          boxShadow: 'var(--shadow-md)',
+          fontSize: '0.9rem',
+          minWidth: '280px'
         }}>
+          <span style={{ 
+            width: '10px', 
+            height: '10px', 
+            borderRadius: '50%', 
+            backgroundColor: toast.type === 'success' ? 'var(--success)' : 
+                             toast.type === 'error' ? 'var(--error)' : 'var(--primary)' 
+          }}></span>
           {toast.message}
         </div>
       ))}

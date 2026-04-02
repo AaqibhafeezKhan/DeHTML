@@ -33,6 +33,21 @@ export default function PreviewerTool() {
           />
         </div>
       </div>
+
+      <div className={styles.actions}>
+        <button 
+          onClick={() => setCode('')} 
+          className={styles.btnOutline}
+        >
+          Clear Editor
+        </button>
+        <button 
+          onClick={() => setCode('<h1>Hello Previewer!</h1>\n<style>\n  h1 { color: #ec4899; }\n</style>')} 
+          className={styles.btnSecondary}
+        >
+          Reset Demo
+        </button>
+      </div>
     </div>
   )
 }

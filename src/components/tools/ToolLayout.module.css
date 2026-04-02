@@ -123,14 +123,16 @@
 
 /* Specific to Diff Tool or Result areas */
 .resultArea {
-  margin-top: 1rem;
-  padding: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.75rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-family: var(--font-mono);
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
+  animation: fadeUp 0.4s ease-out;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .diffLine {
