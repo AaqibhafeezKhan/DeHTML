@@ -1,80 +1,65 @@
-# DeHTML
+# DeHTML Studio
 
-A lightweight, modern web application that allows users to easily strip HTML tags from text. Built with pure HTML, CSS, and JavaScript, this tool provides a clean and intuitive interface for converting HTML content to plain text.
+A modern, fast, and secure toolkit for HTML manipulation built with React and Vite. Experience a clean, professional interface with powerful built-in tools.
 
 ## Features
 
-- 🚀 Fast and efficient HTML tag stripping
-- 📋 One-click copy to clipboard
-- 🎨 Modern, responsive design
-- ✨ Smooth animations and transitions
-- 🔄 Loading indicator for visual feedback
-- ⚡ No external dependencies
+- **Strip HTML Tags**: Instantly extract plain text from complex HTML content.
+- **Encode / Decode Entities**: Easily convert special characters to HTML entities and back.
+- **Diff Viewer**: Compare two blocks of text or code line-by-line.
+- **Formatter**: Clean up and beautify messy HTML code.
 
-## Live Demo
+## Getting Started
 
-Visit the live application: [DeHTML](https://aaqibhafeezkhan.github.io/DeHTML/)
+### Prerequisites
 
-## Installation
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-1. Clone the repository:
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Run the local development server:
+
 ```bash
-git clone https://github.com/AaqibhafeezKhan/DeHTML.git
-cd DeHTML
+npm run dev
 ```
 
-2. Open `index.html` in your web browser to run locally.
+### Production Build
 
-## Project Structure
+To structure the application for production, run:
 
-```
-DeHTML/
-├── index.html      # Main HTML file
-├── style.css       # Styling and animations
-├── script.js       # Application logic
-└── README.md       # Documentation
+```bash
+npm run build
 ```
 
-## Usage
+The output will be generated in the `dist` directory, fully optimized and ready to deploy to GitHub Pages.
 
-1. Paste your HTML content into the input text area
-2. Click "Strip HTML Tags" to process
-3. The stripped text will appear in the output area
-4. Use the "Copy to Clipboard" button to copy the result
-5. Click "Reset" to clear both input and output areas
+## Deployment to GitHub Pages
 
-## Features in Detail
+The application is pre-configured for GitHub pages deployment (`base: './'` in `vite.config.js`).
 
-### HTML Stripping
-- Uses DOM parser for safe and reliable HTML tag removal
-- Preserves text content and spacing
-- Handles nested HTML structures correctly
+1. Ensure the `dist` folder is correctly generated.
+2. Push your code to your repository.
+3. Configure your GitHub Pages to deploy from the branch/folder pointing to `dist`.
 
-### User Interface
-- Responsive design that works on all devices
-- Clean, modern aesthetic with smooth animations
-- Visual feedback during processing
-- Error handling with informative alerts
+## Testing
 
-### Animations
-- Page load fade-in effect
-- Processing spinner
-- Smooth hover transitions
-- Alert message animations
-- Interactive button effects
+This project uses Vitest and React Testing Library for standard unit tests. To run tests:
 
-## Browser Support
+```bash
+npm test
+```
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
+## Legacy Support
 
-## Development
+The previous vanilla JavaScript implementation is preserved in the `/legacy` folder and remains accessible via the `/legacy/index.html` path in production.
 
-To modify the application:
-
-1. HTML (`index.html`): Contains the structure and elements
-2. CSS (`style.css`): Handles styling and animations
-3. JavaScript (`script.js`): Implements the core functionality
+---

@@ -1,0 +1,44 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.toolArea {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  margin-top: 1.5rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--bg-base);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--primary-color-darker);
+}

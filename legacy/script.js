@@ -4,7 +4,7 @@ const stripButton = document.getElementById('strip-button');
 const copyButton = document.getElementById('copy-button');
 const resetButton = document.getElementById('reset-button');
 const alertBox = document.getElementById('alert');
-const loadingSpinner = document.getElementById('spinner'); // Get the loading spinner element
+const loadingSpinner = document.getElementById('spinner');
 
 
 function showAlert(message, type) {

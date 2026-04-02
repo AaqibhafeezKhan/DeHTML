@@ -1,41 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Tag Stripper</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container fade-in">
-        <h1>HTML Tag Stripper</h1>
-
-        <div id="alert" class="alert" role="alert" aria-live="polite"></div> <div class="text-area-container">
-            <div class="text-area-wrapper">
-                <label class="text-area-label" for="input">Input HTML:</label>
-                <textarea id="input" placeholder="Paste your HTML here..."></textarea>
-            </div>
-
-            <div class="text-area-wrapper">
-                <label class="text-area-label" for="output">Plain Text Output:</label>
-                <textarea id="output" placeholder="Stripped text will appear here..." readonly></textarea>
-            </div>
-        </div>
-
-        <div class="loading-spinner" id="spinner"></div>
-
-        <div class="buttons-container">
-            <button id="strip-button" class="primary-button">
-                <span class="button-text">Strip HTML Tags</span>
-            </button>
-            <button id="copy-button" class="secondary-button">
-                <span class="button-text">Copy to Clipboard</span>
-            </button>
-            <button id="reset-button" class="secondary-button">
-                <span class="button-text">Reset</span>
-            </button>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DeHTML – A powerful, modern HTML tag stripper and text utilities toolkit. Strip HTML, decode entities, format JSON, and more with a beautiful dark-mode interface." />
+    <meta name="keywords" content="HTML stripper, remove HTML tags, plain text converter, HTML decoder, text tools" />
+    <meta property="og:title" content="DeHTML – HTML Tag Stripper & Text Toolkit" />
+    <meta property="og:description" content="Strip HTML tags, decode entities, count words, and more — instantly." />
+    <title>DeHTML – HTML Tag Stripper & Text Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
